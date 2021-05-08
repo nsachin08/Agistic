@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CHAT</title>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/chat.css" rel="stylesheet" />
+
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-database.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCdrJMB4vD1aWGOMM6r3ickS0lMQT_RJMM",
+    authDomain: "frosthackdb.firebaseapp.com",
+    projectId: "frosthackdb",
+    storageBucket: "frosthackdb.appspot.com",
+    messagingSenderId: "91260967403",
+    appId: "1:91260967403:web:7fc78a81573d359257a1ae",
+    measurementId: "G-9TEMYQ2CEK"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  </script>
+  <style>
+	.submitbtn {
+	border-radius: 30px;
+	margin-top: 10px;
+    margin-right: 10px;
+	padding: 10px;
+	padding-left: 30px;
+	padding-right: 30px;
+	border-width: 1px;
+	border-color: #467cdb;
+    transition: all ease 0.5s;
+	background-color: #467cdb;
+	color: white;
+	}
+	.submitbtn:hover {
+		background-color: white;
+		color: #467cdb;
+		border-width: 1px;
+		border-color: #467cdb;
+	}
+</style>
+</head>
+<body>
+    
+    <div id="nickWrap">
+        <div class="pen-title">
+            <h1>Chat</h1>  <span> <i class='fa fa-paint-brush'></i> <i class='fa fa-code'></i></span>
+         </div>
+        <!-- Form Module-->
+        <div class="module form-module">
+            <div class="toggle"><i class="fa fa-times fa-pencil"></i>
+                <div class="tooltip">REGISTER</div>
+            </div>
+            <div class="form">
+                <h2>Enter your username</h2>
+                <p id="nickError" style="color: #d43f3a"></p>
+
+                <form id="setNick">
+                    <input id="nickName" type="text" placeholder="Username"/>
+                    <button class="submitbtn" style="outline:none;" >Login</button>
+                </form>
+            </div>
+            <div class="form">
+                <h2>Create an account</h2>
+                <form>
+                    <input type="text" placeholder="Username"/>
+                    <input type="password" placeholder="Password"/>
+                    <input type="email" placeholder="Email Address"/>
+                    <input type="tel" placeholder="Phone Number"/>
+                    <button>Register</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- chat -->
+
+
+    <div id="contentWrap">
+
+        <!-- chat template -->
+<p id="private_name"></p>
+
+        <div class="col-md-8">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                     CHAT HISTORY
+                </div>
+                <div class="panel-body">
+                    <ul class="media-list">
+
+                        <li class="media">
+
+                            <div class="media-body">
+                                <div id="chat">
+
+
+
+                                </div>
+
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel-footer">
+                    <div class="input-group">
+                        <input placeholder="Enter a message:" size="105" id="message" style="outline:none;" /> 
+                            <button id="send" class="submitbtn">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="chatWrap">
+        <!--<div id="chat">
+
+
+        </div>-->
+        </div>
+
+        <div class="col-md-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    ONLINE USERS
+                </div>
+                <div class="panel-body">
+                    <ul class="media-list">
+
+                        <li class="media">
+
+                            <div class="media-body">
+                                <div id="users">
+
+
+                                </div>
+
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Group -->
+
+
+
+
+
+
+            <!-- Creating a group -->
+
+
+
+        </div>
+
+        <div class="col-md-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    Group Chat
+                </div>
+                <div class="panel-body">
+                    <ul class="media-list">
+
+                        <li class="media">
+
+                            <div class="media-body">
+                                <div id="rooms"></div>
+                                <div id="room creation"></div>
+                                <input type="button" class="btn btn-info" id="roombutton" value="+ Create Group"  style="width:150px;margin-bottom: 10px"/>
+
+                                <input id="roomname" style="width:200px;" />
+
+                            </div>
+                </div>
+                </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="name" id="name" style="display: none;">sonali</div>
+</body>
+     <script src="js/chat.js"></script>
+</html>

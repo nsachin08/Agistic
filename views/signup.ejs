@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>FrostHack</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-database.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCdrJMB4vD1aWGOMM6r3ickS0lMQT_RJMM",
+    authDomain: "frosthackdb.firebaseapp.com",
+    projectId: "frosthackdb",
+    storageBucket: "frosthackdb.appspot.com",
+    messagingSenderId: "91260967403",
+    appId: "1:91260967403:web:7fc78a81573d359257a1ae",
+    measurementId: "G-9TEMYQ2CEK"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  </script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+	<link href="css/style.css" rel="stylesheet">
+    <link href="css/signup.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://m.w3newbie.com/you-tube.css">
+</head>
+<body>
+	<!--Navbar-->
+<nav class="navbar navbar-expand-md navbar-light fixed-top">
+	<div class="container-fluid">
+	<a class="navbar-brand" style="color: white;" href="#">FrostHack</a>	
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+		<span class="navbar-toggler-icon">
+		</span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarResponsive">
+		<ul class="navbar-nav ml-auto">
+      <li class="nav-item active"> <a class="ab" href="/#about">About</a></li>
+      <li class="nav-item "><a class="ab"href="/#gettingstarted">Getting Started</a></li>
+      <li class="nav-item "><a class="ab" href="/login">Login/Signup</a></li>
+      <li class="nav-item "><a class="ab" href="/#contact">Contact</a></li>
+		</ul>
+	</div>
+	</div> 
+</nav>
+
+<!-- Signup form -->
+<div class="container-fluid padding main" id="main">
+    <div class="row padding">
+		<div class="col-md-6 left">
+            <div class="left_div">
+                <h2>Welcome to FrostHack!</h2>
+                <h4 style="color: white;">Trace your Product</h4>
+            </div>
+		</div>
+        <div class="col-md-6 right">
+                <form method="post" action="/storename" >
+                  <div class="form-group">
+                    <label for="username">Username</label>
+                    <input class="form-control" type="text" name="username" id="username" placeholder="Aashi Shukla" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input class="form-control" type="text" name="name" id="email" placeholder="aashishukla@gmail.com" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="password">Password</label>
+                    <input class="form-control" type="password" name="password" id="password" placeholder="********" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="passwordRepeat">Repeat Password</label>
+                    <input class="form-control" type="password" name="passwordRepeat" id="passwordRepeat" placeholder="********" required />
+                  </div>
+                  <div class="row">
+                      <div class="col-12" style="text-align: center;">
+                        <button type="button" onclick="signup()" class="btn btn--form" type="submit">Signup</button>
+                      </div>
+                      <div class="col-12" style="text-align: center;">
+                        <p class="signup__link">Already have an account? <a href="/login" style="color: blue;text-decoration: none;">Login Here</a></p>
+                      </div>
+                  </div>
+                </form>  
+		</div>
+	</div>
+</div>
+
+</body>
+<script type="text/javascript">
+
+	function signup(){
+       var email=document.getElementById("email").value;
+     if(email=="") window.alert("Email cannot be empty!");
+     else {
+  firebase.auth().createUserWithEmailAndPassword(email, document.getElementById("password").value)
+  .then((USER) => {
+     // Signed in 
+     firebase.auth().onAuthStateChanged(function(user){ 
+         if (user) { 
+           // User is signed in.
+          var id= user.uid;
+          var email=user.email;
+            //  window.alert("welcome "+id);
+          firebase.database().ref('users/' + id).set({
+               username: document.getElementById("username").value,
+               email: email,
+         }, (error) => {
+           if (error) {
+             // The write failed...
+             console.log("failed");
+             window.alert("Please, try again or check your login credentials!");
+           } else {
+             // Data saved successfully!
+             console.log("done!!");
+             window.location = '/';
+           }
+         }); 
+        } else {
+           // No user is signed in.
+            }
+        });
+  })
+  .catch((FirebaseAuthUserCollisionException) => {
+    window.alert("User Already exist!");
+    // ..
+  })
+  .catch((error) => {
+    window.alert("Something went wrong, please try again!");
+    // ..
+  }); }
+
+	}
+</script>
+</html>
