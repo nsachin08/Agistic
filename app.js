@@ -16,7 +16,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost:27017/frosthackDB", {useNewUrlParser: true, useUnifiedTopology: true , useFindAndModify: false} );
+mongoose.connect("mongodb://localhost:27017/newDB", {useNewUrlParser: true, useUnifiedTopology: true , useFindAndModify: false} );
 mongoose.set("useCreateIndex",true);
 
 // Routes
@@ -33,22 +33,12 @@ var Chat = mongoose.model('Message', chatSchema);
 
 
 app.use(express.static(path.join(__dirname + '/assets'))); //allows html file to reference stylesheet "helloworld.css" that is stored in ./css directory
-var username='not available';
-app.post('/storename', function (req, res) {
-    username=req.body.username;
-  console.log(username+" "+req.body);
-  res.send();
-})
-app.get('/storename', function (req, res) {
-    username=req.body.username;
-  console.log(username+" "+req.body);
-    res.redirect("/");
-})
+
 app.get('/', function (req, res) {
     res.render("home");
 })
 app.get('/chat', function (req, res) {
-    res.render("chat",{name:username});
+    res.render("chat");
 })
 app.get("/track",function(req,res){
     res.render("track");
