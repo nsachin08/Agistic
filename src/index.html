@@ -1,0 +1,229 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+        <ul class="navbar-nav px-3">
+          <li class="nav-item text-nowrap d-none d-sm-none d-sm-block">
+            <small><a class="nav-link" href="#"><div id="account"></div></a></small>
+          </li>
+        </ul>
+      </nav>
+    <p>Hello World</p>
+    <script src="app.js"></script>
+    <form onSubmit="App.createChain(); return false;">
+        <input id="newName" type="text" class="form-control" placeholder="Add product name..." required>
+        <input id="date_today" type="text" class="form-control" placeholder="Add date..." required>
+        <input type="submit">
+      </form>
+    <script src="vendor/truffle-contract/dist/truffle-contract.js"></script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>FrostHack</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-database.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCdrJMB4vD1aWGOMM6r3ickS0lMQT_RJMM",
+    authDomain: "frosthackdb.firebaseapp.com",
+    projectId: "frosthackdb",
+    storageBucket: "frosthackdb.appspot.com",
+    messagingSenderId: "91260967403",
+    appId: "1:91260967403:web:7fc78a81573d359257a1ae",
+    measurementId: "G-9TEMYQ2CEK"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  </script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+	<link href="style.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://m.w3newbie.com/you-tube.css">
+</head>
+<style>
+	body {
+		margin-top: 65px;
+        background-color: #e9e9e9;
+	}
+    input {
+        padding:10px;
+		border-width: 0px;
+    border-radius: 30px;
+    transition: all ease 0.5s;
+    box-sizing: border-box;background: #f8f8f8;
+    border-radius: 30px;
+    transition: all ease 0.5s;
+    box-sizing: border-box;
+	border: 1px solid #eef0f2;
+    }
+	.top {
+		margin-left: 50px; margin-right: 50px; border-radius: 20px;
+		background-color: white;
+	    padding:20px;
+		text-align: center; align-items: center;
+		margin-top:100px;
+	}
+	.submitbtn {
+	border-radius: 30px;
+	margin-top: 10px;
+	padding: 10px;
+	padding-left: 30px;
+	padding-right: 30px;
+	border-width: 1px;
+	border-color: #467cdb;
+    transition: all ease 0.5s;
+	background-color: #467cdb;
+	color: white;
+	}
+	.submitbtn:hover {
+		background-color: white;
+		color: #467cdb;
+		border-width: 1px;
+		border-color: #467cdb;
+	}
+	p {
+		font-size: 1rem;
+	}
+	@media (max-width: 576px) {
+		h2 {
+			font-size: 1.1rem;
+		}
+		p {
+		font-size: 0.9rem;
+	}
+	.top {
+		margin-left: 20px; 
+		margin-right: 20px; 
+	}
+	input {
+		width: 85%;
+	}
+	}
+	
+</style>
+<body>
+	<!--Navbar-->
+	<nav class="navbar navbar-expand-md navbar-light fixed-top">
+		<div class="container-fluid">
+		<a class="navbar-brand" style="color: white;" href="http://localhost:3000/">Agistic</a>	
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+		  <span class="navbar-toggler-icon">
+		  </span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarResponsive">
+		  <ul class="navbar-nav ml-auto">
+		  <li class="nav-item active"> <a class="ab" href="/#about">About</a></li>
+			 <li class="nav-item "><a class="ab"href="/#gettingstarted">Getting Started</a></li>
+			 <li class="nav-item "><a class="ab" href="/login">Login/Signup</a></li>
+			 <li class="nav-item "><a class="ab" href="/#contact">Contact</a></li>
+		  </ul>
+		</div>
+		</div> 
+	  </nav>
+
+<div class="container-fluid">
+	<div class="row top justify-content-center align-self-center" >
+        <div>
+            <h2>Track Your Product</h2>
+			<p>Enter Code and submit to get the tracking details.</p>
+            <div>
+                <div>
+                    <input type="text" name="id" id="id" style="outline:none;" placeholder="13243656576" required /> 
+					<button class="submitbtn" style="outline:none;" onclick="add3()"  >Submit</button>
+                </div>
+				<div id = "trace_func" >
+				</div>
+            </div>
+        </div>
+    </div>
+	<div class="row top justify-content-center align-self-center add" id="add" >
+        <div>
+            <h2>Add Your Product</h2>
+			<p>Enter Prodcut Id and location.</p>
+            <div>
+                <div>
+                    <input type="text" name="add_date" id="add_date" style="outline:none;" placeholder="01/01/2021" required />
+					<input type="text" name="add_location" id="add_location" style="outline:none;" placeholder="New Delhi" required />  
+					<input type="text" name="add_name" id="add_name" style="outline:none;" placeholder="Name" required /> 
+					<button class="submitbtn" style="outline:none;" onclick="add()">Add</button>
+                </div>
+				<div id='track_func'>
+					<p>Your product has been added! Product ID: </p>
+				</div>
+            </div>
+        </div>
+    </div>
+	<div class="row top justify-content-center align-self-center scan" id="scan" >
+        <div>
+            <h2>Scan Your Product</h2>
+			<p>Enter Prodcut Id and location.</p>
+            <div>
+                <div>
+                    <input type="text" name="scan_id" id="scan_id" style="outline:none;" placeholder="13243656576" required />
+					<input type="text" name="scan_location" id="scan_location" style="outline:none;" placeholder="New Delhi" required />  
+					<input type="text" name="scan_location" id="scan_location" style="outline:none;" placeholder="01/01/2021" required />  
+					<button class="submitbtn" style="outline:none;" onclick="add2()" >Scan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+	</div> 
+</body>
+<script type="text/javascript">
+ firebase.auth().onAuthStateChanged(function(user){ 
+       if (user) { 
+  // User is signed in.
+        var id= user.uid;
+        
+        var ref = firebase.database().ref();
+        firebase.database().ref('/users/' + id).once('value').then((snapshot) => {
+			console.log(snapshot.val().type);
+		if(snapshot.val().type!='user'){
+			document.getElementById('add').style.display='block';
+		}
+		if(snapshot.val().type=='manufacturer'){
+			document.getElementById('scan').style.display='block';
+		}
+  // ...
+        });
+
+        } else {
+          }
+    });
+</script>
+<script>
+	function add(){
+		document.getElementById('track_func').style.display='block'
+	}
+	function add2(){
+		document.getElementById('addstate_func').style.display='block'
+	}
+	function add3(){
+		document.getElementById('trace_func').style.display='block'
+	}
+</script>
+</html>
+<!-- 5405c2 -->
