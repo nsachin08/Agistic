@@ -73,7 +73,7 @@ App = {
       createChain: async() =>{
         App.setLoading=true;
         const name = $('#newName').val()
-        const date = $('date_today').val()
+        const date = $('#date_today').val()
         await App.supplychain.newItem(name, date)
         window.location.reload()
       },
@@ -87,9 +87,9 @@ App = {
 
       addState: async() =>{
         App.setLoading=true;
-        const id = $('#ProductID').val()
-        const location = $('#location').val()
-        const date = $('#date').val()
+        const id = $('#scan_id').val()
+        const location = $('#scan_location').val()
+        const date = $('#scan_date').val()
         await App.supplychain.addState(id, location, date)
         window.location.reload()
       },   
