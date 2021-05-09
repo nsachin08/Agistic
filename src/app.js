@@ -7,6 +7,7 @@ App = {
         await App.render()
         await App.loadContract()
     },
+    
     loadWeb3: async () => {
         if (typeof web3 !== 'undefined') {
           App.web3Provider = web3.currentProvider
