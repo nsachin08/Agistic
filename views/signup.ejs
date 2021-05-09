@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>FrostHack</title>
+	<title>Agistic</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
@@ -40,7 +40,7 @@
 	<!--Navbar-->
 <nav class="navbar navbar-expand-md navbar-light fixed-top">
 	<div class="container-fluid">
-	<a class="navbar-brand" style="color: white;" href="#">FrostHack</a>	
+	<a class="navbar-brand" style="color: white;" href="#">Agistic</a>	
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
 		<span class="navbar-toggler-icon">
 		</span>
@@ -61,7 +61,7 @@
     <div class="row padding">
 		<div class="col-md-6 left">
             <div class="left_div">
-                <h2>Welcome to FrostHack!</h2>
+                <h2>Welcome to Agistic!</h2>
                 <h4 style="color: white;">Trace your Product</h4>
             </div>
 		</div>
@@ -83,6 +83,15 @@
                     <label for="passwordRepeat">Repeat Password</label>
                     <input class="form-control" type="password" name="passwordRepeat" id="passwordRepeat" placeholder="********" required />
                   </div>
+                  <div class="form-group">
+                    <label for="user" style="font-weight: bold;" >Choose type of User</label>
+                  <input type="radio" id="user" name="type" value="user">
+          <label for="user" style="color: black;" >User</label>
+           <input type="radio" id="manufacturer" name="type" value="manufacturer">
+          <label for="manufacturer" style="color: black;">Manufacturer</label>
+          <input type="radio" id="warehouse" name="type" value="warehouse">
+          <label for="warehouse" style="color: black;">Warehouse</label>
+        </div>
                   <div class="row">
                       <div class="col-12" style="text-align: center;">
                         <button type="button" onclick="signup()" class="btn btn--form" type="submit">Signup</button>
@@ -111,10 +120,21 @@
            // User is signed in.
           var id= user.uid;
           var email=user.email;
+          var type="";
+      if(document.getElementById("user").checked){
+        type="user";
+      }
+      if(document.getElementById("manufacturer").checked){
+        type="manufacturer";
+      }
+      if(document.getElementById("warehouse").checked){
+        type="warehouse";
+      }
             //  window.alert("welcome "+id);
           firebase.database().ref('users/' + id).set({
                username: document.getElementById("username").value,
                email: email,
+               type :type,
          }, (error) => {
            if (error) {
              // The write failed...
