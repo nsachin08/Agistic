@@ -1,9 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>FrostHack</title>
+	<title>Agistic</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-database.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCdrJMB4vD1aWGOMM6r3ickS0lMQT_RJMM",
+    authDomain: "frosthackdb.firebaseapp.com",
+    projectId: "frosthackdb",
+    storageBucket: "frosthackdb.appspot.com",
+    messagingSenderId: "91260967403",
+    appId: "1:91260967403:web:7fc78a81573d359257a1ae",
+    measurementId: "G-9TEMYQ2CEK"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  </script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -77,7 +100,7 @@
 	<!--Navbar-->
 	<nav class="navbar navbar-expand-md navbar-light fixed-top">
 		<div class="container-fluid">
-		<a class="navbar-brand" style="color: white;" href="#">FrostHack</a>	
+		<a class="navbar-brand" style="color: white;" href="#">Agistic</a>	
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
 		  <span class="navbar-toggler-icon">
 		  </span>
@@ -106,7 +129,58 @@
             </div>
         </div>
     </div>
+	<div class="row top justify-content-center align-self-center add" id="add" >
+        <div>
+            <h2>Add Your Product</h2>
+			<p>Enter Prodcut Id and location.</p>
+            <div>
+                <div>
+                    <input type="text" name="add_id" id="add_id" style="outline:none;" placeholder="13243656576" required />
+					<input type="text" name="add_location" id="add_location" style="outline:none;" placeholder="New Delhi" required />  
+					<button class="submitbtn" style="outline:none;" >Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+	<div class="row top justify-content-center align-self-center scan" id="scan" >
+        <div>
+            <h2>Scan Your Product</h2>
+			<p>Enter Prodcut Id and location.</p>
+            <div>
+                <div>
+                    <input type="text" name="scan_id" id="scan_id" style="outline:none;" placeholder="13243656576" required />
+					<input type="text" name="scan_location" id="scan_location" style="outline:none;" placeholder="New Delhi" required />  
+					<button class="submitbtn" style="outline:none;" >Scan</button>
+                </div>
+            </div>
+        </div>
+    </div>
 	</div> 
 </body>
+<script type="text/javascript">
+ firebase.auth().onAuthStateChanged(function(user){ 
+       if (user) { 
+  // User is signed in.
+        var id= user.uid;
+        
+        var ref = firebase.database().ref();
+        firebase.database().ref('/users/' + id).once('value').then((snapshot) => {
+			console.log(snapshot.val().type);
+		if(snapshot.val().type!='user'){
+			document.getElementById('add').style.display='block';
+		}
+		if(snapshot.val().type=='manufacturer'){
+			document.getElementById('scan').style.display='block';
+		}
+  // ...
+        });
+
+        } else {
+  // No user is signed in.
+  window.alert("Please Sign-Up first!");
+  window.location("/signup");
+          }
+    });
+</script>
 </html>
 <!-- 5405c2 -->
