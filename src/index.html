@@ -151,11 +151,9 @@
 			<p>Enter Code and submit to get the tracking details.</p>
             <div>
                 <div>
-                    <input type="text" name="id" id="id" style="outline:none;" placeholder="13243656576" required /> 
-					<button class="submitbtn" style="outline:none;" onclick="add3()"  >Submit</button>
+                    <input type="text" name="ProductID" id="ProductID" style="outline:none;" placeholder="13243656576" required /> 
+					<button class="submitbtn" style="outline:none;" onclick="App.searchProduct()"  >Submit</button>
                 </div>
-				<div id = "trace_func" >
-				</div>
             </div>
         </div>
     </div>
@@ -168,7 +166,7 @@
                     <input type="text" name="add_date" id="add_date" style="outline:none;" placeholder="01/01/2021" required />
 					<input type="text" name="add_location" id="add_location" style="outline:none;" placeholder="New Delhi" required />  
 					<input type="text" name="add_name" id="add_name" style="outline:none;" placeholder="Name" required /> 
-					<button class="submitbtn" style="outline:none;" onclick="add()">Add</button>
+					<button class="submitbtn" style="outline:none;" onclick="App.addState()">Add</button>
                 </div>
 				<div id='track_func'>
 					<p>Your product has been added! Product ID: </p>
@@ -184,7 +182,7 @@
                 <div>
                     <input type="text" name="scan_id" id="scan_id" style="outline:none;" placeholder="13243656576" required />
 					<input type="text" name="scan_location" id="scan_location" style="outline:none;" placeholder="New Delhi" required />  
-					<input type="text" name="scan_location" id="scan_location" style="outline:none;" placeholder="01/01/2021" required />  
+					<input type="text" name="scan_date" id="scan_date" style="outline:none;" placeholder="01/01/2021" required />  
 					<button class="submitbtn" style="outline:none;" onclick="add2()" >Scan</button>
                 </div>
             </div>
@@ -213,17 +211,6 @@
         } else {
           }
     });
-</script>
-<script>
-	function add(){
-		document.getElementById('track_func').style.display='block'
-	}
-	function add2(){
-		document.getElementById('addstate_func').style.display='block'
-	}
-	function add3(){
-		document.getElementById('trace_func').style.display='block'
-	}
 </script>
 </html>
 <!-- 5405c2 -->
