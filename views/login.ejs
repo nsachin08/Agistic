@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>FrostHack</title>
+	<title>Agistic</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
@@ -53,7 +53,7 @@
 	<!--Navbar-->
   <nav class="navbar navbar-expand-md navbar-light fixed-top">
     <div class="container-fluid">
-    <a class="navbar-brand" style="color: white;" href="#">FrostHack</a>	
+    <a class="navbar-brand" style="color: white;" href="#">Agistic</a>	
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
       <span class="navbar-toggler-icon">
       </span>
@@ -74,7 +74,7 @@
     <div class="row padding">
 		<div class="col-md-6 left">
             <div class="left_div">
-                <h2>Welcome to FrostHack!</h2>
+                <h2>Welcome to Agistic!</h2>
                 <h4 style="color: white;">Trace your Product</h4>
             </div>
 		</div>
@@ -113,13 +113,7 @@
            if(email=="") window.alert("Email cannot be empty!"); else {
      	firebase.auth().signInWithEmailAndPassword(email, document.getElementById("password").value)
   .then(function(result) {
-      $.ajax({
-            type: 'POST',
-            url:'/storename',
-            success: function(){
-              window.location ='/storename';
-            }
-        });
+    window.location ='/';
            console.log(result);
   }).catch(function(error) {
     // Handle error.
