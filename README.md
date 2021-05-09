@@ -27,11 +27,18 @@ The impacts are many, and hence we definitely believe this concept can become an
 
 ![alt text](https://assets.devfolio.co/hackathons/efcf40b9f9b043f38f82fa2d03a0154d/projects/2d2e6a81fde54bfca0ec910236c46717/49217bd6-5463-41bf-ae6a-2264336a661e.png)
 <hr>
+
 ![alt text](https://assets.devfolio.co/hackathons/efcf40b9f9b043f38f82fa2d03a0154d/projects/2d2e6a81fde54bfca0ec910236c46717/b68f5540-e794-4ef5-b6fb-8aa4c23c91e5.png)
+
 <hr>
+
 ![alt text](https://assets.devfolio.co/hackathons/efcf40b9f9b043f38f82fa2d03a0154d/projects/2d2e6a81fde54bfca0ec910236c46717/754c4e60-ef3d-464b-9736-4bab93ab5801.png)
+
 <hr>
+
 ![alt text](https://assets.devfolio.co/hackathons/efcf40b9f9b043f38f82fa2d03a0154d/projects/2d2e6a81fde54bfca0ec910236c46717/5794dd4f-a653-411d-b4a6-192ec358c6a4.png)
+
 <hr>
+
 ![alt text](https://assets.devfolio.co/hackathons/efcf40b9f9b043f38f82fa2d03a0154d/projects/2d2e6a81fde54bfca0ec910236c46717/5794dd4f-a653-411d-b4a6-192ec358c6a4.png)
 
